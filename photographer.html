@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Fisheye - Portfolio du photographe">
+  <link href="css/style.css" rel="stylesheet" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://kit.fontawesome.com/346f33f767.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+
+  <title>Fisheye - photographe </title>
+</head>
+
+<body>
+  <header class="header">
+    <a class="header-link" href="./index.html" aria-label="Lien vers la page d'accueil">
+      <img src="assets/images/logo.png" class="logo" alt="Fisheye Logo">
+    </a>
+  </header>
+
+  <main id="main">
+    <div class="photograph-header">
+      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+    </div>
+  </main>
+
+  <select class="menu" aria-label="Menu de tri">
+    <option class="menu-options" value=""> Trier par </option>
+    <option class="menu-options" value="Popularité">Popularité</option>
+    <option class="menu-options" value="Date">Date</option>
+    <option class="menu-options" value="Titre">Titre</option>
+  </select>
+
+  <section class="media_section"></section>
+
+  <div id="contact_modal">
+    <div class="modal">
+      <header>
+        <h2>Contactez-moi</h2>
+        <img src="assets/icons/close.svg" onclick="closeModal()" />
+      </header>
+      <form>
+
+        <label class="modal-label" for="firstName">Prénom</label><br>
+        <input class="modal-input" type="text" id="firstName" name="firstName" minlength="2" pattern="(?!^ +$)^.+$"
+          required><br>
+
+        <label class="modal-label" for="lastName">Nom</label><br>
+        <input class="modal-input" type="text" id="lastName" name="lastName" minlength="2" pattern="(?!^ +$)^.+$"
+          required><br>
+
+        <label class="modal-label" for="email">E-mail</label><br>
+        <input class="modal-input" type="email" id="email" name="email" required><br>
+
+        <label class="modal-label" for="message">Votre message</label><br>
+        <input class="modal-input modal-msg" type="text" id="message" name="message" minlength="10" maxlength="100"
+          pattern="(?!^ +$)^.+$" required><br>
+
+        <button class="button modal-submit" aria-label="Bouton d'envoie du formulaire du modal de contact"
+          id="submitButton" type="submit">Envoyer</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="lightbox">
+    <div class="lightbox">
+      <div class="carousel">
+        <div class="arrow left">
+          <img src="./assets/icons/back.svg" alt="">
+        </div>
+        <div class="arrow right">
+          <img src="./assets/icons/next.svg" alt="">
+        </div>
+      </div>
+      <button class="lightbox-close" aria-label="Bouton de fermeture du modal de lightbox" id="lightboxCloseBtn">
+        <img src="./assets/icons/close.svg" alt="">
+      </button>
+    </div>
+  </div>
+
+  <footer></footer>
+  <script src="/scripts/pages/photographer.js"></script>
+  <script src="/scripts/utils/contactForm.js"></script>
+  <script src="/scripts/factories/mediaFactorie.js"></script>
+  <script src="/scripts/factories/lightBoxFactorie.js"></script>
+  <script src="/scripts/factories/carousel.js"></script>
+</body>
+
+</html>
