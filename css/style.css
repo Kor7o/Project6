@@ -336,10 +336,12 @@ form input {
 }
 
 .media-like-button {
+  position: relative;
+  color: #901C1C;
+  margin: 10px;
   border: none;
   background-color: transparent;
   font-size: 2rem;
-  color: #911c1c;
   cursor: pointer;
 }
 
@@ -352,6 +354,10 @@ form input {
 .fa-regular,
 .far {
   font-weight: 400;
+}
+
+.media-like-logo .fa-regular{
+margin: 1px;
 }
 
 
@@ -385,10 +391,6 @@ form input {
   color: #000000;
 }
 
-.fa-solid,
-.fas {
-  font-weight: 900;
-}
 
 /*****************************************
 * CAROUSEL
@@ -415,13 +417,18 @@ form input {
 }
 
 
+.item  {
+ width: 100%;
+ text-align: center;
+}
+
 .item img {
-  margin: 10rem 50rem 0rem 50rem;
+  margin-top: 10rem;
   height: 560px;
 }
 
 .item video {
-  margin: 10rem 50rem 0rem 50rem;
+  margin-top: 10rem;
   height: 560px;
 }
 
@@ -456,11 +463,6 @@ form input {
   width: 90%;
 }
 
-.media-like-button {
-  position: relative;
-  color: #901C1C;
-  margin: 10px;
-}
 
 .lightbox-like {
   border: none;
@@ -491,9 +493,6 @@ form input {
   color: #ffffff;
 }
 
-.lightbox-card-title {
-  margin-left: 50rem;
-}
 
 /*****************************************
 * RESPONSIVE
@@ -522,35 +521,5 @@ form input {
 }
 
 
-.fa-heart-animated {
-  position: inherit;
-  left: 50%;
-          transform: translateX(-50%);
-  bottom: 0;
-  font-size: 0px;
-  color: #901c1c;
-  font-weight: bold;
-          transition-duration: 0.5s;
-}
-
-.title-like {
-  color: #901c1c;
-  position: inherit;
-
-  font-size: 25px;
-}
-
-.title-like .like-heartt:active .fa-heart-animated {
-  font-size: 25px;
-}
 
 
-#heart--icon {
-  position: relative;
-  height: 21px;
-  cursor: pointer;
-}
-
-#heart--icon:active::after .fa-heart-animated {
-  font-size: 20px;
-}

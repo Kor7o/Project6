@@ -20,7 +20,7 @@ function mediaFactory(data) {
         <span class="media-like-count">${likes}</span>
         <button class="media-like-button" aria-label="Bouton de likes">
           <i class="media-like-logo fa-heart fa-regular"></i>
-          <i class="media-like-logo fa-heart fa-solid"></i>
+          <i class="media-like-logo fa-heart fa-solid" style="display:none;"></i>
         </button>
       </div>
     </section>
@@ -41,13 +41,12 @@ function mediaFactory(data) {
         <span class="media-like-count">${likes}</span>
         <button class="media-like-button" aria-label="Bouton de likes">
         <i class="media-like-logo fa-heart fa-regular"></i>
+        <i class="media-like-logo fa-heart fa-solid" style="display:none;"></i>
         </button>
       </div>
     </section>
   `;
   }
-
-
 
 
     // Return the article element

@@ -7,6 +7,7 @@ const right = document.querySelector(".right")
 
 
 function show(position) {
+    num1 = position
     const items = document.querySelectorAll(".item")
     items.forEach(item => {
         console.log(item)
@@ -33,4 +34,3 @@ left.addEventListener("click", function (event) {
     show(num1)
 })
 
-//show(num1)//

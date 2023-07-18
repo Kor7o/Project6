@@ -20,11 +20,15 @@ async function displayData(media) {
       modal.style.display = "block";
       show(index)
     })
-
+  
+    //like
     const like = mediaCardDOM.querySelector(".media-like-button .fa-regular")
       like.addEventListener("click", function (e) {
           console.log(e.target)
           e.target.style.display = 'none'
+
+          const faSolid = mediaCardDOM.querySelector(".fa-solid")
+          faSolid.style.display = "flex"
 
           const nBLike = mediaCardDOM.querySelector(".media-like-count")
           console.log(nBLike.innerHTML)
@@ -37,12 +41,15 @@ async function displayData(media) {
       const unlike = mediaCardDOM.querySelector(".media-like-button .fa-solid")
       unlike.addEventListener("click", function (e) {
           console.log(e.target)
+          e.target.style.display = 'none'
+
       const faRegular = mediaCardDOM.querySelector(".fa-regular")
       faRegular.style.display = "flex"
 
           const nBLike = mediaCardDOM.querySelector(".media-like-count")
           console.log(nBLike.innerHTML)
           nBLike.innerHTML = Number(nBLike.innerHTML)-1
+
           const nBtotal = document.querySelector('#totalLikesCount')
           nBtotal.innerHTML = Number(nBtotal.innerHTML)-1
       })
