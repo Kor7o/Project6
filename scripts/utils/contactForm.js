@@ -8,8 +8,6 @@ function closeModal() {
     modal.style.display = "none";
 }
 
-
-
 document.querySelector("form").addEventListener("submit", (event) => {
     event.preventDefault()
     console.log(firstName.value)

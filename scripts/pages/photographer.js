@@ -24,14 +24,12 @@ async function displayData(media) {
     //like
     const like = mediaCardDOM.querySelector(".media-like-button .fa-regular")
       like.addEventListener("click", function (e) {
-          console.log(e.target)
           e.target.style.display = 'none'
 
           const faSolid = mediaCardDOM.querySelector(".fa-solid")
           faSolid.style.display = "flex"
 
           const nBLike = mediaCardDOM.querySelector(".media-like-count")
-          console.log(nBLike.innerHTML)
           nBLike.innerHTML = Number(nBLike.innerHTML)+1
           const nBtotal = document.querySelector('#totalLikesCount')
           nBtotal.innerHTML = Number(nBtotal.innerHTML)+1
@@ -40,14 +38,12 @@ async function displayData(media) {
       //unlike
       const unlike = mediaCardDOM.querySelector(".media-like-button .fa-solid")
       unlike.addEventListener("click", function (e) {
-          console.log(e.target)
           e.target.style.display = 'none'
 
       const faRegular = mediaCardDOM.querySelector(".fa-regular")
       faRegular.style.display = "flex"
 
           const nBLike = mediaCardDOM.querySelector(".media-like-count")
-          console.log(nBLike.innerHTML)
           nBLike.innerHTML = Number(nBLike.innerHTML)-1
 
           const nBtotal = document.querySelector('#totalLikesCount')
@@ -60,8 +56,6 @@ async function displayData(media) {
     lightBoxSection.appendChild(lightBoxCardDOM);
   });
 };
-
-
 
 async function init() {
   // Récupère les datas des photographes
@@ -82,7 +76,6 @@ async function init() {
 };
 
 function displayPhotographer(profil) {
-  console.log(profil)
 
   const { name, id, city, country, tagline, price, portrait, likes, } = profil;
 
@@ -140,20 +133,56 @@ function validateModalForm(event) {
   const lastName = document.getElementById("lastName");
   const email = document.getElementById("email");
   const message = document.getElementById("message");
-
-  // Check if the form input data is valid & console.log the data as an object
-  if (modalForm.checkValidity()) {
-    console.log({
-      firstName: firstName.value,
-      lastName: lastName.value,
-      email: email.value,
-      message: message.value,
-    });
-    modalForm.reset();
-    closeModal("contactModal");
-  }
 }
 
+
+const menu =document.getElementById("menu-deroulant")
+  menu.addEventListener("change", async function(){
+    const mediaSection = document.querySelector(".media_section")
+    const lightBoxSection = document.querySelectorAll(".lightbox .carousel .item");
+    mediaSection.innerHTML = ""
+    lightBoxSection.forEach(item => item.remove())
+
+  // Récupère les datas des photographes
+  const {media,} = await getPhotographers();
+  const params = (new URL(document.location)).searchParams;
+  const id = params.get('id');
+  const mediaProfil = media.filter(m => m.photographerId == id)
+  const mediaDisplay = await sortMediaSection(menu.value, mediaProfil)
+  displayData(mediaDisplay)
+} )
+
+
+// sort 
+async function sortMediaSection(selectedOption, photographerMedia) {
+
+  // Sort the photographerMedia array using the likes key if the selected option is "Popularité"
+  if (selectedOption == "Popularité") {
+    return await photographerMedia.sort((a, b) => {
+      return b.likes - a.likes;
+    });
+  }
+
+  // Sort the photographerMedia array using the date key if the selected option is "Date"
+  if (selectedOption == "Date") {
+    return await photographerMedia.sort((a, b) => {
+      return new Date(a.date) - new Date(b.date);
+    });
+  }
+
+  // Sort the photographerMedia array using the title key if the selected option is "Titre"
+  if (selectedOption == "Titre") {
+    return await photographerMedia.sort((a, b) => {
+      if (a.title < b.title) {
+        return -1;
+      }
+      if (a.title > b.title) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+}
 
 
 // mettre append ac header

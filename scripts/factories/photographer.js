@@ -23,7 +23,7 @@ function photographerFactory(data) {
         );
         // Create an image element for the photographer portrait
         const img = document.createElement('img');
-        img.setAttribute("src", picture) //j'ai essaye de mettre `picture ${name}` mais ca ne marche pas
+        img.setAttribute("src", picture) 
         img.className += "photographer-img";
         img.setAttribute("alt", `Photo de ${name}`);
 
