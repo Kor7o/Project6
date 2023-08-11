@@ -442,20 +442,20 @@ margin: 1px;
 .left {
   z-index: 999;
   top: 25rem;
-  left: 25rem;
+  left: 15rem;
 }
 
 .right {
   z-index: 999;
   top: 25rem;
-  right: 25rem;
+  right: 15rem;
 }
 
 .lightbox-close {
   position: absolute;
   z-index: 999;
   top: 8rem;
-  left: 88rem;
+  left: 75rem;
   background: none;
   border-style: none;
   filter: brightness(0) saturate(100%) invert(13%) sepia(38%) saturate(4601%) hue-rotate(344deg) brightness(112%) contrast(97%);

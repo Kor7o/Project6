@@ -43,9 +43,9 @@ left.addEventListener("click", function (event) {
       // If lightboxModal is open & the left arrow key is pressed, call the previousLightBoxMedia function
       if (lightboxModal.style.display == "block" && event.key === "ArrowLeft") {
         const items = document.querySelectorAll(".item")
-    num1--
-    if (num1 < 0) { num1 = items.length - 1 }
-    show(num1);
+        num1--
+      if (num1 < 0) { num1 = items.length - 1 }
+        show(num1);
       }
   
       // If lightboxModal is open & the right arrow key is pressed, call the nextLightBoxMedia function
